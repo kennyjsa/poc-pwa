@@ -1,0 +1,9 @@
+{
+  "liveServer.settings.multiRootWorkspaceName": "poc-pwa",
+  "liveServer.settings.https": {
+    "enable": true,
+    "cert": "",
+    "key": "",
+    "passphrase": ""
+  }
+}
