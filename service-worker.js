@@ -2,14 +2,14 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('pwa-cache').then(cache => {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/style.css',
-        '/app.js',
-        '/camera.html',
-        '/file.html',
-        '/geo.html',
-        '/manifest.json'
+        '/poc-pwa/',
+        'index.html',
+        'style.css',
+        'app.js',
+        'camera.html',
+        'file.html',
+        'geo.html',
+        'manifest.json'
       ]);
     })
   );
