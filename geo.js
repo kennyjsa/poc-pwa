@@ -1,4 +1,4 @@
-const map = L.map('map').fitWorld();
+const map = L.map('map').setView([-15,-55], 4);
 
 const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
@@ -20,7 +20,7 @@ document.getElementById('geoButton').addEventListener('click', () => {
       const locationMarker = L.marker(latlng).addTo(map)
   			.bindPopup(textContent).openPopup();
 		  const locationCircle = L.circle(latlng, radius).addTo(map);
-      map.fitBounds(locationMarker.getBounds());
+      map.fitBounds(locationCircle.getBounds());
 
       document.getElementById('geoLocation').textContent = textContent;
     }, error => {
