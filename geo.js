@@ -20,6 +20,7 @@ document.getElementById('geoButton').addEventListener('click', () => {
       const locationMarker = L.marker(latlng).addTo(map)
   			.bindPopup(textContent).openPopup();
 		  const locationCircle = L.circle(latlng, radius).addTo(map);
+      map.fitBounds(locationMarker.getBounds());
 
       document.getElementById('geoLocation').textContent = textContent;
     }, error => {
