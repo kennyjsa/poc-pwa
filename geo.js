@@ -1,22 +1,30 @@
+const map = L.map('map').fitWorld();
+
+const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+
+
 document.getElementById('geoButton').addEventListener('click', () => {
   if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition(position => {
-      const { latitude, longitude } = position.coords;
-      document.getElementById('geoLocation').textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+      const { latitude, longitude, accuracy } = position.coords;
+      var latlng = L.latLng(latitude, longitude);
+      const radius = accuracy / 2;
 
-      const map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: latitude, lng: longitude },
-        zoom: 15
-      });
+      const textContent = `Latitude: ${latitude}, Longitude: ${longitude}, Accuracy: ${accuracy}`;
 
-      new google.maps.Marker({
-        position: { lat: latitude, lng: longitude },
-        map: map
-      });
 
+      const locationMarker = L.marker(latlng).addTo(map)
+  			.bindPopup(textContent).openPopup();
+		  const locationCircle = L.circle(latlng, radius).addTo(map);
+
+      document.getElementById('geoLocation').textContent = textContent;
     }, error => {
       console.error('Error getting geolocation:', error);
-    });
+    }, { enableHighAccuracy: true });
   } else {
     alert('Geolocation not supported in this browser.');
   }

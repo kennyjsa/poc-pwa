@@ -5,16 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Geolocation</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./poc-pwa/style.css">
+  <link rel="manifest" href="./poc-pwa/manifest.json">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 </head>
 <body>
+  <div class="container text-center">
+    <h1 class="my-4">PWA PoC</h1>
+    <a href="/poc-pwa/camera.html" class="btn btn-primary my-2">Open Camera</a>
+    <a href="/poc-pwa/file.html" class="btn btn-primary my-2">Select Image or Video</a>
+    <a href="/poc-pwa/geo.html" class="btn btn-primary my-2">Get Geolocation</a>
+  </div>
+
   <div class="container text-center">
     <h1 class="my-4">Geolocation</h1>
     <button id="geoButton" class="btn btn-primary my-2">Get Geolocation</button>
     <div id="geoLocation"></div>
     <div id="map" style="width: 100%; height: 400px;"></div>
   </div>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
   <script src="geo.js"></script>
 </body>
 </html>
