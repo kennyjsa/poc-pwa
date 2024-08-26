@@ -31,3 +31,16 @@ button, .btn {
   object-fit: contain; /* Garante que o conteúdo mantenha suas proporções */
   border-radius: 8px;
 }
+
+
+/* Estilos para garantir que o vídeo no videoElement seja dimensionado corretamente */
+#videoElement {
+  width: 100%;
+  max-width: 100%;
+  max-height: 80vh; /* Limita a altura do vídeo a 80% da altura da viewport */
+  margin: 0 auto;
+  display: block;
+  object-fit: cover; /* Ajusta o vídeo para cobrir toda a área do contêiner */
+  border-radius: 8px; /* Bordas arredondadas para estética */
+  background-color: #000; /* Cor de fundo enquanto o vídeo carrega */
+}
